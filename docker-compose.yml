@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  client:
+    container_name: app-client
+    restart: always
+    image: cris626/trabajo_de_grado_client:v1
+    ports:
+      - 3000:3000
+    links:
+      - mongo
+      - user
+      - partner
+      - water
+      - sewerage
+      - payment
+  mongo:
+    container_name: database
+    image: mongo
+    ports:
+      - 27017:27017
+  user:
+    container_name: server-user
+    restart: always
+    image: cris626/microservice-user:v1
+    ports:
+      - 4000:4000
+  partner:
+    container_name: server-partner
+    restart: always
+    image: cris626/microservice-partner:v1
+    ports:
+      - 4001:4001
+  water:
+    container_name: server-water
+    restart: always
+    image: cris626/microservice-water:v1
+    ports:
+      - 4002:4002
+  sewerage:
+    container_name: server-sewerage
+    restart: always
+    image: cris626/microservice-sewerage:v1
+    ports:
+      - 4003:4003
+  payment:
+    container_name: server-payment
+    restart: always
+    image: cris626/microservice-payment:v1
+    ports:
+      - 4004:4004
