@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: cris626/client:v4
+          image: cris626/client:v6
 ---
 apiVersion: v1
 kind: Service
